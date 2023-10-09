@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'src/components/game_logo.dart';
 import 'src/styles/color.dart';
 import 'src/views/settings_page.dart';
-import 'src/views/levels_page.dart';
+import 'src/views/normal_levels_page.dart';
+import 'src/views/challege_levels_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,13 +29,6 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        leading: const Icon(Icons.signal_cellular_alt, color: Colors.grey),
-        actions: [
-          const Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: const Icon(Icons.message, color: Colors.grey),
-          ),
-        ],
       ),
       body: Stack(
         children: [
@@ -49,7 +43,8 @@ class MainPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LevelsPage()),
+                      MaterialPageRoute(
+                          builder: (context) => NormalLevelsPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -81,7 +76,8 @@ class MainPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LevelsPage()),
+                      MaterialPageRoute(
+                          builder: (context) => ChallegeLevelsPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(

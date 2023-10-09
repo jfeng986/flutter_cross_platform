@@ -9,6 +9,7 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   bool _isSwitchedOption1 = false;
   bool _isSwitchedOption2 = false;
+  bool _isSwitchedOption3 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        iconTheme: const IconThemeData(color: Colors.grey), // <-- Added const
+        iconTheme: const IconThemeData(color: Colors.grey),
         title: Text(
           'Settings',
           style: TextStyle(
@@ -32,14 +33,19 @@ class _SettingsPageState extends State<SettingsPage> {
         padding: const EdgeInsets.all(20.0), // <-- Added const
         children: [
           const SizedBox(height: 80.0), // <-- Added const
-          buildOptionTile('Option 1', _isSwitchedOption1, (value) {
+          buildOptionTile('Music', _isSwitchedOption1, (value) {
             setState(() {
               _isSwitchedOption1 = value;
             });
           }),
-          buildOptionTile('Option 2', _isSwitchedOption2, (value) {
+          buildOptionTile('Sound FX', _isSwitchedOption2, (value) {
             setState(() {
               _isSwitchedOption2 = value;
+            });
+          }),
+          buildOptionTile('Vibrate', _isSwitchedOption3, (value) {
+            setState(() {
+              _isSwitchedOption3 = value;
             });
           }),
         ],
