@@ -1,4 +1,4 @@
-# count_game
+# flutter
 
 A new Flutter project.
 

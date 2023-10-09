@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'src/components/game_logo.dart';
 import 'src/styles/color.dart';
+import 'src/views/settings_page.dart';
+import 'src/views/levels_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatelessWidget {
+  static const double buttonWidth = 230.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +30,9 @@ class MainPage extends StatelessWidget {
         elevation: 0.0,
         leading: const Icon(Icons.signal_cellular_alt, color: Colors.grey),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.message, color: Colors.grey),
+          const Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: const Icon(Icons.message, color: Colors.grey),
           ),
         ],
       ),
@@ -38,51 +41,105 @@ class MainPage extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              //import game logo
               GameLogo(),
               const SizedBox(height: 100.0),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: base,
-                  elevation: 0.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    side: const BorderSide(color: base),
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LevelsPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: base,
+                    elevation: 0.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      side: const BorderSide(color: base),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 60.0, vertical: 15.0),
                   ),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 60.0, vertical: 15.0),
+                  child: const Text(
+                    'Normal',
+                    style: TextStyle(
+                      fontSize: 24.0, // Adjust the font size as needed
+                      fontWeight: FontWeight.w600,
+                      color: base,
+                      fontFamily: "SulphurPoint",
+                    ),
+                  ),
                 ),
-                child: const Text('Normal'),
               ),
               const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: base,
-                  elevation: 0.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    side: const BorderSide(color: base),
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LevelsPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: base,
+                    elevation: 0.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      side: const BorderSide(color: base),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 60.0, vertical: 15.0),
                   ),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 60.0, vertical: 15.0),
+                  child: const Text(
+                    'Challenge',
+                    style: TextStyle(
+                      fontSize: 24.0, // Adjust the font size as needed
+                      fontWeight: FontWeight.w600,
+                      color: base,
+                      fontFamily: "SulphurPoint",
+                    ),
+                  ),
                 ),
-                child: const Text('Challenge'),
               ),
-
+              const SizedBox(height: 20.0),
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SettingsPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: base,
+                    elevation: 0.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      side: const BorderSide(color: base),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 60.0, vertical: 15.0),
+                  ),
+                  child: const Text(
+                    'Settings',
+                    style: TextStyle(
+                      fontSize: 24.0, // Adjust the font size as needed
+                      fontWeight: FontWeight.w600,
+                      color: base,
+                      fontFamily: "SulphurPoint",
+                    ),
+                  ),
+                ),
+              ),
               const Spacer(), // This will push everything else to the top
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Icon(Icons.settings, size: 30.0, color: base),
-                  Icon(Icons.shopping_cart, size: 30.0, color: base),
-                  Icon(Icons.flag, size: 30.0, color: base),
-                  Icon(Icons.star, size: 30.0, color: base),
-                ],
-              ),
+              const Row(),
               const SizedBox(
                   height: 20.0), // To give some space from the bottom edge
             ],
